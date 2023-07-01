@@ -5,7 +5,9 @@ import Welcome from "~/components/Welcome";
 import AuthWidget from "~/components/AuthWidget";
 
 const Home: NextPage = () => {
-  const { data: session, status } = useSession();
+  const { data: session, status } = useSession({
+    required: true,
+  });
 
   if (status === "loading") return <div>Loading...</div>;
 

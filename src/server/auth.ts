@@ -1,6 +1,6 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import type { PrismaClient } from "@prisma/client";
-import { compare } from 'bcryptjs';
+import { compare } from "bcryptjs";
 import { Role } from "@prisma/client";
 import { type GetServerSidePropsContext } from "next";
 import {
@@ -46,21 +46,21 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     session({ session, token }) {
-        if (session.user) {
-          session.user.id = token.sub!;
-        }
-        return session;
+      if (session.user) {
+        session.user.id = token.sub!;
+      }
+      return session;
     },
   },
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       credentials: {
-          email: { type: 'email' },
-          password: { type: 'password' },
+        email: { type: "email" },
+        password: { type: "password" },
       },
       authorize: authorize(prisma),
-  })
+    }),
     /**
      * ...add more providers here.
      *
@@ -71,22 +71,30 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  pages: {
+    signIn: "/signin",
+    signOut: "/signout",
+  },
 };
 
 function authorize(prisma: PrismaClient) {
-  return async (credentials: Record<'email' | 'password', string> | undefined) => {
-      if (!credentials) throw new Error('Missing credentials');
-      if (!credentials.email) throw new Error('"email" is required in credentials');
-      if (!credentials.password) throw new Error('"password" is required in credentials');
-      const maybeUser = await prisma.user.findFirst({
-          where: { email: credentials.email },
-          select: { id: true, email: true, password: true },
-      });
-      if (!maybeUser || !maybeUser.password) return null;
-      // verify the input password with stored hash
-      const isValid = await compare(credentials.password, maybeUser.password);
-      if (!isValid) return null;
-      return { id: maybeUser.id, email: maybeUser.email };
+  return async (
+    credentials: Record<"email" | "password", string> | undefined
+  ) => {
+    if (!credentials) throw new Error("Missing credentials");
+    if (!credentials.email)
+      throw new Error('"email" is required in credentials');
+    if (!credentials.password)
+      throw new Error('"password" is required in credentials');
+    const maybeUser = await prisma.user.findFirst({
+      where: { email: credentials.email },
+      select: { id: true, email: true, password: true },
+    });
+    if (!maybeUser || !maybeUser.password) return null;
+    // verify the input password with stored hash
+    const isValid = await compare(credentials.password, maybeUser.password);
+    if (!isValid) return null;
+    return { id: maybeUser.id, email: maybeUser.email };
   };
 }
 
