@@ -1,13 +1,19 @@
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { AuthUser } from "~/lib/types/AuthUser";
 import UserButton from "./UserButton";
 
 const Navigation = () => {
   const { data: session, status } = useSession();
 
-  async function onSignout() {
-    await signOut({ redirect: false, callbackUrl: "/signin" });
+  if (!session) {
+    return (
+      <Link
+        href={"/signin"}
+        className="rounded-md bg-violet-500 p-2 text-sm font-bold text-zinc-100 hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-opacity-50"
+      >
+        Sign in
+      </Link>
+    );
   }
 
   return (
@@ -22,7 +28,7 @@ const Navigation = () => {
         <Link href={"/rma"}>RMA</Link>
       </li>
       <li>
-        <UserButton user={session?.user!} />
+        <UserButton user={session.user!} />
       </li>
     </ul>
   );
