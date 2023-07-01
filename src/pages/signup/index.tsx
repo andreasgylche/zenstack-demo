@@ -40,7 +40,7 @@ const SignUp: NextPage = () => {
               Email
             </label>
             <input
-              className="w-full rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 focus:border-violet-500 focus:outline-none focus:ring-violet-500"
+              className="w-full rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 autofill:bg-zinc-900 focus:border-violet-500 focus:outline-none focus:ring-violet-500"
               id="email"
               type="email"
               value={email}
@@ -58,7 +58,7 @@ const SignUp: NextPage = () => {
               Password
             </label>
             <input
-              className="w-full rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 focus:border-violet-500 focus:outline-none focus:ring-violet-500"
+              className="w-full rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 autofill:bg-zinc-900 focus:border-violet-500 focus:outline-none focus:ring-violet-500"
               id="password"
               type="password"
               value={password}
@@ -69,7 +69,7 @@ const SignUp: NextPage = () => {
             />
           </div>
           <button
-            className="w-full rounded-md bg-violet-500 py-2 font-bold text-white hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-opacity-50"
+            className="w-full rounded-md bg-violet-500 py-2 font-bold text-zinc-100 hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-opacity-50"
             type="submit"
           >
             Sign Up
