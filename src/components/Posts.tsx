@@ -38,7 +38,7 @@ const Posts = ({ user }: { user: AuthUser }) => {
         + Create Post
       </button>
 
-      <div className="mt-8 flex w-full flex-col gap-4">
+      <div className="mt-8 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {posts?.map((post) => (
           <div key={post.id} className="flex items-end justify-between gap-4">
             <div className="w-full rounded-lg bg-zinc-800 px-6 py-8 shadow-md">
