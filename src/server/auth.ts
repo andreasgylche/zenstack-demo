@@ -1,16 +1,14 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import type { PrismaClient } from "@prisma/client";
 import { compare } from "bcryptjs";
-import { Role } from "@prisma/client";
+import type { Role } from "@prisma/client";
 import { type GetServerSidePropsContext } from "next";
 import {
   getServerSession,
   type NextAuthOptions,
   type DefaultSession,
 } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { env } from "~/env.mjs";
 import { prisma } from "~/server/db";
 import NextAuth from "next-auth/next";
 

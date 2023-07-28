@@ -1,5 +1,5 @@
 import { useFindManyPost, useMutatePost } from "~/lib/hooks";
-import { AuthUser } from "~/lib/types/AuthUser";
+import type { AuthUser } from "~/lib/types/AuthUser";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/Avatar";
 import {
   Card,

@@ -1,4 +1,4 @@
-import { AuthUser } from "~/lib/types/AuthUser";
+import type { AuthUser } from "~/lib/types/AuthUser";
 
 const Welcome = ({ user }: { user: AuthUser }) => {
   return (

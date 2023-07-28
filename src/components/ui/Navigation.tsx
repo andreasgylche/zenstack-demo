@@ -3,7 +3,7 @@ import Link from "next/link";
 import UserButton from "./UserButton";
 
 const Navigation = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   if (!session) {
     return (

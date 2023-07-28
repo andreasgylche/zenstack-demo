@@ -1,7 +1,6 @@
 import { signOut } from "next-auth/react";
-import { AuthUser } from "~/lib/types/AuthUser";
 
-const UserButton = ({ user }: { user: AuthUser }) => {
+const UserButton = () => {
   return (
     <div className="ml-auto flex gap-4">
       <button
