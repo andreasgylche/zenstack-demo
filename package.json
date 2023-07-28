@@ -12,14 +12,21 @@
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.5",
     "@prisma/client": "^4.14.0",
+    "@radix-ui/react-avatar": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.2",
     "@t3-oss/env-nextjs": "^0.3.1",
     "@zenstackhq/runtime": "1.0.0-beta.2",
     "@zenstackhq/server": "^1.0.0-beta.2",
+    "class-variance-authority": "^0.6.1",
+    "clsx": "^1.2.1",
+    "lucide-react": "^0.257.0",
     "next": "^13.4.2",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "^2.2.0",
+    "tailwind-merge": "^1.13.2",
+    "tailwindcss-animate": "^1.0.6",
     "zod": "^3.21.4"
   },
   "devDependencies": {
